@@ -11,7 +11,10 @@ def read_config():
 config = read_config()
 
 token = config['token']
+
 adminID = config['adminID']
+channelID = config['channelID']
+chatID = config['chatID']
 
 bot = Bot(token)
 dp = Dispatcher(bot)
