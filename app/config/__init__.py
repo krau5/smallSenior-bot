@@ -1,5 +1,4 @@
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from aiogram.dispatcher.filters.state import State
 from aiogram import Bot, Dispatcher
 import yaml
 
@@ -19,9 +18,6 @@ chatID = config['chatID']
 colors = config['colors']
 cluster = config['cluster']
 post_calls = config['post_calls']
-
-text = State()
-image_path = State()
 
 bot = Bot(token)
 storage = MemoryStorage()
