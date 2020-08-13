@@ -6,5 +6,5 @@ Tasks
 
 Stack
 - Python(3.8.2)
-- Aiogram
+- Aiogram(2.9.2)
 - MongoDB

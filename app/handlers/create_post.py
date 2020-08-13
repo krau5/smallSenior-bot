@@ -1,15 +1,17 @@
 from aiogram.types import CallbackQuery, Message
-from config import bot, dp, colors, text, image_path
 from aiogram.dispatcher import FSMContext
+import datetime
+
+from config import bot, dp, colors, text, image_path, adminID
 from keyboard.post import choose_screen_color_kb
 from functions.post import create_post
-import datetime
 
 
 @dp.message_handler(commands='cp')
 async def cmd_start(message: Message):
-    await text.set()  # set state
-    await message.reply("Введи текст нового посту")
+    if message.from_user.id == adminID:
+        await text.set()
+        await message.reply("Введи текст нового посту")
 
 
 @dp.message_handler(state=text)

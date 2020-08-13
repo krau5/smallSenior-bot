@@ -15,14 +15,16 @@ def choose_screen_color_kb():
     return keyboard
 
 
-def create_post_kb(url=None):
+def create_post_kb(like_text=None, dlike_text=None):
     keyboard = InlineKeyboardMarkup(row_width=2)
+    if like_text:
+        keyboard.add(
+            InlineKeyboardButton(text=like_text, callback_data="likes"),
+            InlineKeyboardButton(text=dlike_text, callback_data="dlikes")
+        )
+        return keyboard
     keyboard.add(
         InlineKeyboardButton(text="🔥 0", callback_data="likes"),
         InlineKeyboardButton(text="👎 0", callback_data="dlikes")
     )
-    if url:
-        keyboard.add(
-            InlineKeyboardButton(text="Посмотреть", url=url)
-        )
     return keyboard
