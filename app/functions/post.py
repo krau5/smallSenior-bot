@@ -1,3 +1,5 @@
+from aiogram.utils.exceptions import MessageNotModified
+
 from config import bot, channelID
 from keyboard.post import create_post_kb
 
@@ -42,5 +44,5 @@ async def count_likes(c):
             c.message.message_id,
             reply_markup=create_post_kb(like_text, dlike_text)
         )
-    except Exception:
+    except MessageNotModified:
         pass
