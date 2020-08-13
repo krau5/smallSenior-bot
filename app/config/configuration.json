@@ -1,6 +1,9 @@
 {
-    "token": "1376542034:AAGfXFqHq2AeRmSSNBE8GZ6a4tuuwTMF6FQ",
+    "token": "1376542034:AAEqkb5nOYYcpUNrXzVZwCTcqmgjmggs5po",
+    "cluster": "mongodb+srv://login:login@cluster-k8ee1.gcp.mongodb.net/db?retryWrites=true&w=majority",
     "adminID": 397330072,
-    "channelID": "-1001419360985",
-    "chatID": "-1001417224601"
+    "channelID": "-1001440319691", 
+    "chatID": "-1001417224601",
+    "colors": ["red", "green", "blue", "yellow", "dark"],
+    "post_calls": ["likes", "dlikes"]
 }
