@@ -1,12 +1,12 @@
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State
 from aiogram import Bot, Dispatcher
-import json
+import yaml
 
 
 def read_config():
-    with open('config/configuration.json', 'r') as f_obj:
-        content = json.load(f_obj)
+    with open('config/configuration.yaml', 'r') as f_obj:
+        content = yaml.load(f_obj, Loader=yaml.FullLoader)
     return content
 
 
