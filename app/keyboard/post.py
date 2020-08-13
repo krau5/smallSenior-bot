@@ -18,8 +18,8 @@ def choose_screen_color_kb():
 def create_post_kb(url=None):
     keyboard = InlineKeyboardMarkup(row_width=2)
     keyboard.add(
-        InlineKeyboardButton(text="🔥 0", callback_data="like"),
-        InlineKeyboardButton(text="👎 0", callback_data="dlike")
+        InlineKeyboardButton(text="🔥 0", callback_data="likes"),
+        InlineKeyboardButton(text="👎 0", callback_data="dlikes")
     )
     if url:
         keyboard.add(

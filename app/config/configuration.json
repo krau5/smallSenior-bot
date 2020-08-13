@@ -4,5 +4,6 @@
     "adminID": 397330072,
     "channelID": "-1001440319691", 
     "chatID": "-1001417224601",
-    "colors": ["red", "green", "blue", "yellow", "dark"]
+    "colors": ["red", "green", "blue", "yellow", "dark"],
+    "post_calls": ["likes", "dlikes"]
 }

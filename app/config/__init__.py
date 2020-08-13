@@ -19,6 +19,7 @@ channelID = config['channelID']
 chatID = config['chatID']
 colors = config['colors']
 cluster = config['cluster']
+post_calls = config['post_calls']
 
 text = State()
 image_path = State()
