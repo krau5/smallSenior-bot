@@ -1,11 +1,12 @@
-from aiogram.types import CallbackQuery, Message
-from aiogram.dispatcher import FSMContext
 import datetime
-from aiogram import types
+
+from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import State, StatesGroup
-from config import bot, dp, colors, adminID
-from keyboard.post import choose_screen_color_kb
-from functions.post import create_post
+from aiogram.types import CallbackQuery, Message
+
+from app.config import bot, dp, colors, adminID
+from app.functions.post import create_post
+from app.keyboard.post import choose_screen_color_kb
 
 
 class Post(StatesGroup):

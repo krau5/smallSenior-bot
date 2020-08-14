@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from config import cluster
+from app.config import cluster
 
 client = MongoClient(cluster)
 coll_posts = client.db.posts

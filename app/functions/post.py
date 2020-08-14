@@ -1,14 +1,12 @@
 from aiogram.utils.exceptions import MessageNotModified
 
-from config import bot, channelID
-from keyboard.post import create_post_kb
+from app.config import bot, channelID
+from app.keyboard.post import create_post_kb
 
-from db.manage_likes import get_likes, update_likes, calc_likes
-from db.manage_marks import add_mark
-from db.manage_id import check_id
-from db.manage_post import (
-    insert_post
-)
+from app.db.manage_likes import get_likes, update_likes, calc_likes
+from app.db.manage_marks import add_mark
+from app.db.manage_id import check_id
+from app.db.manage_post import insert_post
 
 
 async def create_post(state):

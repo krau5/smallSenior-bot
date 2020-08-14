@@ -1,9 +1,9 @@
-from config import bot, chatID, channelID
+from app.config import bot, chatID, channelID
 
 
 async def count_members_text(channel_members, chat_members):
-    return f'''Кількість користувачів у каналі: {channel_members}\n
-Кількість користувачів у чаті: {chat_members}'''
+    return f"Кількість користувачів у каналі: {channel_members}\n" \
+           f"Кількість користувачів у чаті: {chat_members}"
 
 
 async def count_members():

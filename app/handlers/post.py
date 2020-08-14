@@ -1,6 +1,6 @@
 from aiogram.types import CallbackQuery
-from functions.post import count_likes
-from config import dp, post_calls
+from app.functions.post import count_likes
+from app.config import dp, post_calls
 
 
 async def throttle(*args, **kwargs):

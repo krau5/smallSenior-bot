@@ -1,10 +1,11 @@
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram import Bot, Dispatcher
 import yaml
+from . import logger
 
 
 def read_config():
-    with open('config/configuration.yaml', 'r') as f_obj:
+    with open('app/config/configuration.yaml', 'r') as f_obj:
         content = yaml.load(f_obj, Loader=yaml.FullLoader)
     return content
 
