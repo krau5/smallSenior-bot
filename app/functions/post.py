@@ -17,6 +17,8 @@ async def create_post(state):
         caption=info['text'],
         reply_markup=create_post_kb()
     )
+    await bot.pin_chat_message(res.chat.id, res.message_id)
+    await bot.delete_message(res.chat.id, res.message_id+1)
     await insert_post(res.message_id)
 
 

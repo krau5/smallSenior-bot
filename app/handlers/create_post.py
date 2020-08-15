@@ -31,7 +31,7 @@ async def get_text(message: Message, state: FSMContext):
 @dp.callback_query_handler(lambda c: c.data in colors, state=Post.image_path)
 async def _(c: CallbackQuery, state: FSMContext):
     today = datetime.datetime.now().strftime("%A")
-    path = f'images/{c.data}/{today.lower()}.jpg'
+    path = f'app/images/{c.data}/{today.lower()}.jpg'
     await state.update_data(image_path=path)
     await bot.delete_message(c.message.chat.id, c.message.message_id)
     await create_post(state)
