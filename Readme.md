@@ -26,6 +26,7 @@ Install all dependencies
 ```
 pip3 install -r requirements.txt
 ```
+Before launching, change marked data in the configuration
 Run the application
 ```
 python -m app
