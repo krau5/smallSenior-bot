@@ -1,0 +1,7 @@
+[default]
+colors = ['red', 'green', 'blue', 'yellow', 'dark']
+post_calls = ['likes', 'dlikes']
+
+[development]
+
+[production]

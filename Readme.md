@@ -26,7 +26,25 @@ Install all dependencies
 ```
 pip3 install -r requirements.txt
 ```
-Before launching, change marked data in the configuration\
+
+Afterwards, create `.secrets.toml` in `app/config` with variables:
+```
+[your_env] # development, production or something else
+TOKEN =
+MONGODB_CONNECTION_STRING =
+adminID =
+channelID =
+chatID = 
+```
+| VARIABLES                 | DESCRIPTION                                        |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `your_env`                | Project environment. Change in `app/config/__init__.py` through switch to another environment, by default, development.
+| `TOKEN`                   | Telegram bot token from t.me/BotFather.
+| `MONGODB_CONNECTION_STRING`                 | MongoDB connection string to your database.
+| `adminID`                 | Telegram user ID of the bot admin.
+| `channelID`               | Telegram channel ID to moderate.
+| `chatID`                  | Telegram chat ID to moderate.
+
 Run the application
 ```
 python -m app

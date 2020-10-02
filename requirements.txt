@@ -1,4 +1,4 @@
 aiogram~=2.9.2
 dnspython==2.0.0
 pymongo~=3.11.0
-PyYAML~=5.3.1
+dynaconf>=3.1.1
