@@ -11,31 +11,9 @@ Stack
 - MongoDB
 
 ____
-### Install on your server using venv
-Firstly, you need install `venv` on your PC
-```
-sudo apt install -y python3-venv
-```
-You need create `venv` for isolate library version using on application:
-```shell
-python3 -m venv env
-source env/bin/activate
-deactivate 
-```
-Install all dependencies
-```
-pip3 install -r requirements.txt
-```
+### Install on your server
+Run `install.sh` and input variables (details below):
 
-Afterwards, create `.secrets.toml` in `app/config` with variables:
-```
-[your_env] # development, production or something else
-TOKEN =
-MONGODB_CONNECTION_STRING =
-adminID =
-channelID =
-chatID = 
-```
 | VARIABLES                 | DESCRIPTION                                        |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------|
 | `your_env`                | Project environment. Change in `app/config/__init__.py` through switch to another environment, by default, development.
