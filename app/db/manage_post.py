@@ -1,13 +1,15 @@
+from typing import NoReturn
+
 from .main import coll_posts
 
 
-async def insert_post(_id):
+async def insert_post(post_id: int) -> NoReturn:
     coll_posts.insert_one({
-        'post_id': _id,
+        'post_id': post_id,
         'marks': {
             'likes': [],
-            'dlikes': []
+            'dislikes': []
         },
         'likes': 0,
-        'dlikes': 0
+        'dislikes': 0
     })
