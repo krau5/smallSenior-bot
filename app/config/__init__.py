@@ -3,13 +3,13 @@ from aiogram import Bot, Dispatcher
 from dynaconf import Dynaconf
 
 
-settings = Dynaconf(
+settings: Dynaconf = Dynaconf(
     env='development', # on production change to production
-    envvar_prefix="DYNACONF",
+    envvar_prefix='DYNACONF',
     settings_files=['settings.toml', '.secrets.toml'],
 )
 
 
-bot = Bot(settings.TOKEN)
-storage = MemoryStorage()
-dp = Dispatcher(bot, storage=storage)
+bot: Bot = Bot(settings.TOKEN)
+storage: MemoryStorage = MemoryStorage()
+dp: Dispatcher = Dispatcher(bot, storage=storage)
