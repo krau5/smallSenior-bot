@@ -1,42 +1,39 @@
+from typing import Dict, Optional, Tuple, NoReturn
+
+from aiogram.types import CallbackQuery
+
 from .main import coll_posts
 
 
-async def get_likes(post_id):
-    info = coll_posts.find_one({'post_id': post_id})
-    final_info = [info['likes'], info['dlikes']]
-    return final_info
+async def get_likes(post_id: int) -> Dict[str, int]:
+    return coll_posts.find_one({'post_id': post_id})
 
 
-async def update_likes(post_id, likes, dlikes):
+async def update_likes(post_id: int, likes: int, dislikes: int) -> NoReturn:
     coll_posts.update_one(
         {'post_id': post_id},
         {'$set': {
             'likes': likes,
-            'dlikes': dlikes
+            'dislikes': dislikes
         }}
     )
 
 
-async def calc_likes(c, prev_mark, like, dlike):
+async def calc_likes(callback: CallbackQuery, prev_mark: Optional[bool],
+                     likes: int, dislikes: int) -> Tuple[int, int]:
     if prev_mark is None:  # no mark
-        if c.data == "likes":
-            like += 1
-        else:
-            dlike += 1
-    elif not prev_mark:  # previous == dislike
-        if c.data == "likes":
-            like += 1
-            if dlike != 0:
-                dlike -= 1
-        else:
-            if dlike != 0:
-                dlike -= 1
-    else:  # previous == like
-        if c.data == "likes":
-            if like != 0:
-                like -= 1
-        else:
-            if like != 0:
-                like -= 1
-            dlike += 1
-    return like, dlike
+        if callback.data == 'likes':
+            likes += 1
+        elif callback.data == 'dislikes':
+            dislikes += 1
+    elif not prev_mark:  # previous == dislikes
+        if callback.data == 'likes':
+            likes += 1
+        if dislikes != 0:
+            dislikes -= 1
+    elif prev_mark:  # previous == likes
+        if likes != 0:
+            likes -= 1
+        if callback.data == 'dislikes':
+            dislikes += 1
+    return likes, dislikes
