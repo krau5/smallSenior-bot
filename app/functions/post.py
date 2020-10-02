@@ -1,6 +1,6 @@
 from aiogram.utils.exceptions import MessageNotModified
 
-from app.config import bot, channelID
+from app.config import bot, settings
 from app.keyboard.post import create_post_kb
 
 from app.db.manage_likes import get_likes, update_likes, calc_likes
@@ -12,7 +12,7 @@ from app.db.manage_post import insert_post
 async def create_post(state):
     info = await state.get_data()
     res = await bot.send_photo(
-        channelID,
+        settings.channelID,
         photo=open(info['image_path'], 'rb'),
         caption=info['text'],
         reply_markup=create_post_kb()

@@ -1,24 +1,15 @@
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram import Bot, Dispatcher
-import yaml
+from dynaconf import Dynaconf
 
 
-def read_config():
-    with open('app/config/configuration.yaml', 'r') as f_obj:
-        content = yaml.load(f_obj, Loader=yaml.FullLoader)
-    return content
+settings = Dynaconf(
+    env='development', # on production change to production
+    envvar_prefix="DYNACONF",
+    settings_files=['settings.toml', '.secrets.toml'],
+)
 
 
-config = read_config()
-
-token = config['token']
-adminID = config['adminID']
-channelID = config['channelID']
-chatID = config['chatID']
-colors = config['colors']
-cluster = config['cluster']
-post_calls = config['post_calls']
-
-bot = Bot(token)
+bot = Bot(settings.TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
